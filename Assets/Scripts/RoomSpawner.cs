@@ -21,36 +21,43 @@ public class RoomSpawner : MonoBehaviour
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         properties = GameObject.FindGameObjectWithTag("RoomProperties").GetComponent<RoomProperties>();
 
-        Invoke("Spawn",0.1f);
+        switch (properties.roomSize)
+        {
+            case 1:
+                Invoke("SpawnRoomSize1", 0.1f);
+                break;
+            case 2:
+                Invoke("SpawnRoomSize2", 0.1f);
+                break;
+            case 3:
+                Invoke("SpawnRoomSize3", 0.1f);
+                break;
+        }
+       
     }
-    void Spawn()
+    void SpawnRoomSize1()
     {
         if (spawned == false && templates.Rooms.Count < properties.maxNumRooms)
         {
-
-            if (openingDirection == 1)
+            switch (openingDirection)
             {
-                rand = Random.Range(0, templates.bottomRooms.Length);
-                Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-            }
-            else if (openingDirection == 2)
-            {
-
-                rand = Random.Range(0, templates.topRooms.Length);
-                Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-            }
-            else if (openingDirection == 3)
-            {
-
-                rand = Random.Range(0, templates.leftRooms.Length);
-                Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-            }
-            else if (openingDirection == 4)
-            {
-
-                rand = Random.Range(0, templates.rightRooms.Length);
-                Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
-            }
+                case 1:
+                    rand = Random.Range(0, templates.bottomRooms.Length);
+                    Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                    break;
+                case 2:
+                    rand = Random.Range(0, templates.topRooms.Length);
+                    Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+                    break;
+                case 3:
+                    rand = Random.Range(0, templates.leftRooms.Length);
+                    Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
+                    break;
+                case 4: 
+                    rand = Random.Range(0, templates.rightRooms.Length);
+                    Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+                    break;
+            }          
             spawned = true;
         }
     }
