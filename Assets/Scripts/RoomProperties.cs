@@ -8,6 +8,11 @@ public class RoomProperties : MonoBehaviour
    
     [Rename("Maximum Number of Rooms")]
     public int maxNumRooms;
-    public int roomSize;
 
+    [Range(1, 3)]
+    public int roomSize;   
+
+  
+ 
+   
 }
