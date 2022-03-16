@@ -5,38 +5,44 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
-    
 
+    #region Rooms 
+    #region Arrays
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
+    #endregion
+    public GameObject closedRoom;
+    public GameObject entryRoom;
+    #endregion
 
     public int size;
     private Vector3 roomSize; 
     public List<GameObject> Rooms; 
 
-    public GameObject closedRoom;
-    public GameObject entryRoom;
+    
 
    
     public void ChangeSize()
     {
-        roomSize = new Vector3(size, size, size);
+        roomSize = new Vector3(size, size, size); //Sets the roomSize Vector3 to size (which uses the slider value from RoomProperties),
+                                                  //this is because Vector3 cannot be used with switch statements 
         switch (size)
         {
+            //Case 1: if size is set to 1 then the scale of all rooms will be roomSize which is 1x1x1
             case 1:
-
                 entryRoom.transform.localScale = roomSize;
                 for (int i = 0; i < 3; i++)
                 {
-                    
+
                     bottomRooms[i].transform.localScale = roomSize;
-                    //topRooms[i].transform.localScale = roomSize;
-                    //leftRooms[i].transform.localScale = roomSize;
-                    //rightRooms[i].transform.localScale = roomSize;
-        }                
+                    topRooms[i].transform.localScale = roomSize;
+                    leftRooms[i].transform.localScale = roomSize;
+                    rightRooms[i].transform.localScale = roomSize;
+                }                
                 break;
+                //Case 2: if size is set to 2 then the scale of all rooms will be roomSize which is 2x2x2
             case 2:
                 
                 entryRoom.transform.localScale = roomSize;
@@ -44,33 +50,31 @@ public class RoomTemplates : MonoBehaviour
                 {
 
                     bottomRooms[i].transform.localScale = roomSize;
-                    //topRooms[i].transform.localScale = roomSize;
-                    //leftRooms[i].transform.localScale = roomSize;
-                    //rightRooms[i].transform.localScale = roomSize;
+                    topRooms[i].transform.localScale = roomSize;
+                    leftRooms[i].transform.localScale = roomSize;
+                    rightRooms[i].transform.localScale = roomSize;
                 }
                 break;
+
+                //Case 3: if size is set to 3 then the scale of all rooms will be roomSize which is 3x3x3
                 case 3:
-                
                 entryRoom.transform.localScale = roomSize;;
                 for (int i = 0; i < 3; i++)
                 {
 
                     bottomRooms[i].transform.localScale = roomSize;
-                    //topRooms[i].transform.localScale = roomSize;
-                    //leftRooms[i].transform.localScale = roomSize;
-                    //rightRooms[i].transform.localScale = roomSize;
+                    topRooms[i].transform.localScale = roomSize;
+                    leftRooms[i].transform.localScale = roomSize;
+                    rightRooms[i].transform.localScale = roomSize;
                 }
                 break;
         }
         
     }
 
-
     public float waitTime;
     private bool spawnedBoss;
-    public GameObject boss;
-
-   
+    public GameObject boss;   
 
     private void Update()
     {

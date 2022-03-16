@@ -11,11 +11,11 @@ public class RoomProperties : EditorWindow
     //[SerializeField] private RoomSpawner spawner;
     public static Vector3 scale;
 
-    
-    private void Awake()
-    {
-        //
-    }
+    [Rename("Maximum Number of Rooms")]
+    public int maxNumRooms;
+
+   
+
 
     [MenuItem("Room Properties/Edit Mode Functions")]
     public static void ShowWindow()
@@ -24,46 +24,46 @@ public class RoomProperties : EditorWindow
         
     }
 
-
-    private void OnGUI()
-    {
-        EditorGUI.BeginChangeCheck();
-       //templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        //spawner = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<RoomSpawner>();
-        //EditorGUILayout.BeginHorizontal();
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        roomSize = EditorGUILayout.IntSlider(roomSize, 1, 3);
-        templates.size = roomSize;
-        if(EditorGUI.EndChangeCheck())
-        {
-            templates.ChangeSize();
-        }
-
-        //scale = EditorGUILayout.Vector3Field("Room Size", scale);
-
-        //roomSize = EditorGUILayout.IntField("Room", templates.roomSize);
-        //templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        //ChangeSize();
-    }
-
-    //void ChangeSize()
-    //{
-    //    //scale = new Vector3(roomSize, 1, roomSize);
-        
-    //    //templates.size = scale;
-    //}
-
-    //private void Update()
-    //{
-    //    scale = new Vector3(roomSize,1,roomSize);
-    //    templates.size = scale;
-    //}
-
-    [Rename("Maximum Number of Rooms")]
-    public int maxNumRooms;
+    GameObject entryTile;
+    Editor entryTileEditor;
 
     [Range(1, 3)]
-    public int roomSize;
+    public int roomSize; 
+    private void OnGUI()
+    {
+        
+        #region Change Room Size
+        
+        EditorGUI.BeginChangeCheck(); //Checks for GUI changes, in our case we're checking for some variables         
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>(); //Find the Room Templates object (object with the room arrays)
+        roomSize = EditorGUILayout.IntSlider(roomSize, 1, 3); //Slider in window
+        templates.size = roomSize; //Sets the int variable size (in RoomTemplates) to the value of the above slider
+         
+        if(EditorGUI.EndChangeCheck()) //Finishes checking for GUI changes
+        {
+            templates.ChangeSize(); //Commits the changes
+            
+        }
+        
+        #endregion
+
+
+        #region Preview Window
+        entryTile = (GameObject)EditorGUILayout.ObjectField(entryTile, typeof(GameObject), true);
+        if (entryTile != null)
+        {
+            if (entryTileEditor == null)
+            {
+                entryTileEditor = Editor.CreateEditor(entryTile);
+            }
+                
+
+            entryTileEditor.OnPreviewGUI(GUILayoutUtility.GetRect(roomSize*100, roomSize*100), EditorStyles.whiteLabel);
+        }
+        #endregion
+    }
+
+
 
 
 
