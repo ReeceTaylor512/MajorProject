@@ -6,6 +6,8 @@ public class RoomSpawner : MonoBehaviour
 {
     [SerializeField] private int openingDirection;
 
+    private int maxNumRooms;
+
     private RoomTemplates templates;
     private RoomProperties properties; 
 
@@ -14,26 +16,18 @@ public class RoomSpawner : MonoBehaviour
 
     private float waitTime = 4f;
 
-    
+
+
+
     private void Start()
     {
         Destroy(gameObject, waitTime);
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        properties = GameObject.FindGameObjectWithTag("RoomProperties").GetComponent<RoomProperties>();
+      
 
-        switch (properties.roomSize)
-        {
-            case 1:
-                Invoke("SpawnRoomSize1", 0.1f);
-                break;
-            case 2:
-                Invoke("SpawnRoomSize2", 0.1f);
-                break;
-            case 3:
-                Invoke("SpawnRoomSize3", 0.1f);
-                break;
-        }
-       
+
+        Invoke("SpawnRoomSize1", 0.1f);
+
+
     }
     void SpawnRoomSize1()
     {
@@ -57,6 +51,7 @@ public class RoomSpawner : MonoBehaviour
                     rand = Random.Range(0, templates.rightRooms.Length);
                     Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
                     break;
+               
             }          
             spawned = true;
         }
