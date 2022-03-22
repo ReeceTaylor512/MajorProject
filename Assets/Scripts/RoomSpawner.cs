@@ -9,7 +9,7 @@ public class RoomSpawner : MonoBehaviour
     private int maxNumRooms;
 
     private RoomTemplates templates;
-    private RoomProperties properties; 
+    //private RoomProperties properties; 
 
     private int rand;
     private bool spawned = false;
@@ -24,14 +24,14 @@ public class RoomSpawner : MonoBehaviour
         Destroy(gameObject, waitTime);
       
 
-
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>(); //Find the Room Templates object (object with the room arrays
         Invoke("SpawnRoomSize1", 0.1f);
 
 
     }
     void SpawnRoomSize1()
     {
-        if (spawned == false && templates.Rooms.Count < properties.maxNumRooms)
+        if (spawned == false /*templates.Rooms.Count < properties.maxNumRooms*/)
         {
             switch (openingDirection)
             {
