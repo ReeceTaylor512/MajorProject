@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2340850007519255103}
   - component: {fileID: 7944443940754788415}
   m_Layer: 0
-  m_Name: 1x1 Wall
+  m_Name: ClosedRoom
   m_TagString: SpawnedRooms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
