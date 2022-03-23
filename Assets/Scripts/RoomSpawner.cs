@@ -12,12 +12,13 @@ public class RoomSpawner : MonoBehaviour
     private int maxNumRooms;
 
     private RoomTemplates templates;
+    private GameObject ClosedRoom; 
     //private RoomProperties properties; 
 
     private int rand;
     private bool spawned = false;
 
-    private float waitTime = 4f;
+    private float waitTime = 5f;
     
 
 
@@ -25,7 +26,7 @@ public class RoomSpawner : MonoBehaviour
     {
         Destroy(gameObject, waitTime);
       
-
+        
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>(); //Find the Room Templates object (object with the room arrays
         Invoke("SpawnRoomSize1", 0.1f);
 
@@ -49,10 +50,15 @@ public class RoomSpawner : MonoBehaviour
                         spawnPoints1.Add(o.gameObject);
                        //spawnPoints1 = spawnPoints1.OrderBy(go => go.name).ToList();
                     }
-                    if(spawnPoints1[0].GetComponent<RoomSpawner>().openingDirection == 6)
+                    for (int i = 0; i < spawnPoints1.Count(); i++)
                     {
-                         o1.GetComponentInParent<Transform>().transform.localPosition += new Vector3(0, 0.5f, 0);
+                        if (spawnPoints1[i].GetComponent<RoomSpawner>().openingDirection == 5)
+                        {
+                            o1.GetComponent<Transform>().transform.localPosition += new Vector3(0, 0.5f, 0);
+                         
+                        }
                     }
+                    
                     break;
                 case 2:
                     rand = Random.Range(0, templates.topRooms.Length);
@@ -64,9 +70,13 @@ public class RoomSpawner : MonoBehaviour
                         spawnPoints2.Add(o.gameObject);
                         //spawnPoints2 = spawnPoints2.OrderBy(go => go.name).ToList();
                     }
-                    if (spawnPoints2[1].GetComponent<RoomSpawner>().openingDirection == 6)
+                    for (int i = 0; i < spawnPoints2.Count(); i++)
                     {
-                        o2.GetComponentInParent<Transform>().transform.localPosition -= new Vector3(0, 0.5f, 0);
+                        if (spawnPoints2[i].GetComponent<RoomSpawner>().openingDirection == 6)
+                        {
+                            o2.GetComponent<Transform>().transform.localPosition -= new Vector3(0, 0.5f, 0);
+                            
+                        }
                     }
                     break;
                 case 3:
@@ -79,9 +89,13 @@ public class RoomSpawner : MonoBehaviour
                         spawnPoints3.Add(o.gameObject);
                         //spawnPoints3 = spawnPoints3.OrderBy(go => go.name).ToList();
                     }
-                    if (spawnPoints3[2].GetComponent<RoomSpawner>().openingDirection == 8)
+                    for (int i = 0; i < spawnPoints3.Count(); i++)
                     {
-                        o3.GetComponentInParent<Transform>().transform.localPosition += new Vector3(0.5f, 0, 0);
+                        if (spawnPoints3[i].GetComponent<RoomSpawner>().openingDirection == 8)
+                        {
+                            o3.GetComponent<Transform>().transform.localPosition += new Vector3(0.5f, 0, 0);
+                           
+                        }
                     }
                     break;
                 case 4:
@@ -94,13 +108,18 @@ public class RoomSpawner : MonoBehaviour
                         spawnPoints4.Add(o.gameObject);
                         //spawnPoints4 = spawnPoints4.OrderBy(go => go.name).ToList();
                     }
-                    if (spawnPoints4[3].GetComponent<RoomSpawner>().openingDirection == 7)
+                    for (int i = 0; i < spawnPoints4.Count(); i++)
                     {
-                        o4.GetComponentInParent<Transform>().transform.localPosition -= new Vector3(0.5f, 0, 0);
+                        if (spawnPoints4[i].GetComponent<RoomSpawner>().openingDirection == 7)
+                        {
+                            o4.GetComponent<Transform>().transform.localPosition -= new Vector3(0.5f, 0, 0);
+                            spawned = false;
+                        }
                     }
+                    
                     break;
-
-            }          
+                    
+            }
             spawned = true;
         }
     }
@@ -112,9 +131,56 @@ public class RoomSpawner : MonoBehaviour
         if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
         {
             Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-         
+            Debug.Log("Closed Room created");
             Destroy(gameObject);
-    }
-            spawned = true;                
+
+        }
+
+          //  if (gameObject.GetComponent<RoomSpawner>().openingDirection == 5)
+          //  {
+          //      o.GetComponent<Transform>().transform.localPosition += new Vector3(0, 0.5f, 0);
+          //  }
+          //else if(gameObject.GetComponent<RoomSpawner>().openingDirection == 6)
+          //  { 
+          //      o.GetComponent<Transform>().transform.localPosition -= new Vector3(0, 0.5f, 0); 
+          //  }
+          //  else if(gameObject.GetComponent<RoomSpawner>().openingDirection == 7)
+          //  { o.GetComponent<Transform>().transform.localPosition -= new Vector3(0.5f, 0, 0); }
+          //  else if(gameObject.GetComponent<RoomSpawner>().openingDirection == 8)
+          //  { o.GetComponent<Transform>().transform.localPosition += new Vector3(0.5f, 0, 0); }
+
+
+           // List<GameObject> spawnPoints5 = new List<GameObject>();
+        
+        //foreach (Transform o in templates.closedRoom.transform)
+        //{
+        //    spawnPoints5.Add(o.gameObject);
+        //    //spawnPoints4 = spawnPoints4.OrderBy(go => go.name).ToList();
+        //}
+        //for (int i = 0; i < spawnPoints5.Count(); i++)
+        //{
+               
+        //    if (spawnPoints5[i].GetComponent<RoomSpawner>().openingDirection == 5)
+        //    {
+        //        templates.closedRoom.GetComponentInParent<Transform>().transform.localPosition += new Vector3(0, 0.5f, 0);
+        //    }
+        //    if (spawnPoints5[i].GetComponent<RoomSpawner>().openingDirection == 6)
+        //    {
+                
+        //    }
+        //    if (spawnPoints5[i].GetComponent<RoomSpawner>().openingDirection == 7)
+        //    {
+                
+        //    }
+        //    if (spawnPoints5[i].GetComponent<RoomSpawner>().openingDirection == 8)
+        //    {
+                
+        //    }
+
+        //}                  
+            
+            
+        
+                           
     }
 }
