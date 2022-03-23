@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 283217645827547797}
   - component: {fileID: 3148390679678215416}
   m_Layer: 0
-  m_Name: SpawnPointR
+  m_Name: 3
   m_TagString: SpawnPoint
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 6491484352020915804}
   - component: {fileID: 206485921103984039}
   m_Layer: 0
-  m_Name: SpawnPointB
+  m_Name: 2
   m_TagString: SpawnPoint
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

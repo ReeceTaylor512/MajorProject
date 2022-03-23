@@ -9,6 +9,7 @@ public class RoomTemplates : MonoBehaviour
     #region Rooms 
     #region Arrays
     public GameObject[] bottomRooms;
+ 
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
