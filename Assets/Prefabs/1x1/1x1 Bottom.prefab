@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4301458688100796748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5272266151555427388}
+  m_Layer: 0
+  m_Name: WallSpawn
+  m_TagString: Wall
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5272266151555427388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301458688100796748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.465, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1942052092297287979}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4654513818390364499
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +41,7 @@ GameObject:
   - component: {fileID: 1942052092297287979}
   - component: {fileID: 2993713913453090314}
   - component: {fileID: 7238651883016993193}
+  - component: {fileID: 696103746682371899}
   m_Layer: 0
   m_Name: 1x1 Bottom
   m_TagString: SpawnedRooms
@@ -27,9 +58,10 @@ Transform:
   m_GameObject: {fileID: 4654513818390364499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4880812075133852290}
+  - {fileID: 5272266151555427388}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,6 +129,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48af382e7ac6ae7499d39e63c91b6f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &696103746682371899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654513818390364499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6efa7af345d894bbd033cbdc0ca8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderImages:
+  - Uid: 304c8dae3ade478fa2c7dd24db1162e1
+    ReverseColor: 1
+    ColorRange: 0
+    ColorR: 0
+    ColorG: 0
+    ColorB: 0
+    ColorA: 1
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    ColorRangeTo: {r: 0, g: 0, b: 0, a: 0}
+    Collider: {fileID: 0}
+    NeedNewCollider: 0
+    img: {fileID: 21300000, guid: 5b676a6cc00447b48a54fb54324fc32a, type: 3}
+    points:
+    - {x: 0, y: -0.5, z: -0.5}
+    - {x: 0, y: -0.5, z: 0.5}
+    - {x: 0, y: 0.5, z: 0.5}
+    - {x: 0, y: 0.5, z: -0.5}
+    - {x: 0, y: 0.125, z: -0.5}
+    - {x: 0, y: 0.125, z: -0.42800003}
+    - {x: 0, y: 0.42800003, z: -0.42800003}
+    - {x: 0, y: 0.42800003, z: 0.42800003}
+    - {x: 0, y: -0.42800003, z: 0.42800003}
+    - {x: 0, y: -0.42800003, z: -0.42800003}
+    - {x: 0, y: -0.125, z: -0.42800003}
+    - {x: 0, y: -0.125, z: -0.5}
+    - {x: 0, y: -0.499, z: -0.5}
+    rootpos: {x: 0, y: 0, z: 0}
+    debug: 0
 --- !u!1 &7242253784732638344
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class AddRoom : MonoBehaviour
 {
-    private RoomTemplates templates;
+    private RoomTemplates _templates;
 
     private void Start()
     {
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        templates.Rooms.Add(this.gameObject);
+        _templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+        _templates.rooms.Add(this.gameObject);
+        foreach(Transform child in transform)
+        {
+            if(child.tag == "Wall")
+            {
+                _templates.WallSpawnPoints.Add(child.gameObject);
+            }
+            
+        }
+        
     }
 }

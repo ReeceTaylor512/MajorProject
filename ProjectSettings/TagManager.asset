@@ -9,6 +9,9 @@ TagManager:
   - SpawnedRooms
   - RoomProperties
   - Destroyer
+  - Key
+  - Wall
+  - WallSpawnPoint
   layers:
   - Default
   - TransparentFX
