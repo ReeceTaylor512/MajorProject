@@ -168,7 +168,7 @@ MonoBehaviour:
     - {x: 0, y: -0.125, z: -0.42800003}
     - {x: 0, y: -0.125, z: -0.5}
     - {x: 0, y: -0.499, z: -0.5}
-    rootpos: {x: 0, y: 0, z: 0}
+    rootpos: {x: 11.147914, y: 1.7955023, z: 0}
     debug: 0
 --- !u!1 &7242253784732638344
 GameObject:
@@ -180,8 +180,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4880812075133852290}
   - component: {fileID: 7273261795018456308}
-  - component: {fileID: 4370020781208150593}
   - component: {fileID: 2333113371122930661}
+  - component: {fileID: 4742919571412193323}
   m_Layer: 0
   m_Name: 2
   m_TagString: SpawnPoint
@@ -216,27 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 2
---- !u!50 &4370020781208150593
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7242253784732638344}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &2333113371122930661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,3 +242,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
+--- !u!50 &4742919571412193323
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7242253784732638344}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
